@@ -23,6 +23,15 @@ RUN cmake .. \
     && make \
     && make install
 
+# install ftxui
+WORKDIR /usr/src/libraries
+RUN git clone https://github.com/ArthurSonzogni/FTXUI.git
+WORKDIR /usr/src/libraries/FTXUI
+RUN mkdir build && cd build && \
+    cmake .. && make && make install
+
+
+
 # build the project
 WORKDIR /usr/src/app
 COPY . .

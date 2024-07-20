@@ -4,6 +4,9 @@ project(AP)
 set(CMAKE_CXX_STANDARD 20)
 
 find_package(GTest REQUIRED)
+find_package(Curses REQUIRED)
+find_package(ftxui CONFIG REQUIRED)
+
 
 include_directories(include/)
 
@@ -17,4 +20,7 @@ add_executable(main
 target_link_libraries(main
         GTest::GTest
         GTest::Main
+        ftxui::dom 
+        ftxui::screen 
+        ftxui::component
 )
